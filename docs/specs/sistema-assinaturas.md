@@ -93,7 +93,7 @@ flowchart LR
 | `GET /servcad/assinaturas/:tipo` | `tipo = TODAS \| ATIVAS \| CANCELADAS` | `[{codigo, codCli, codApp, inicioVigencia, fimVigencia, status}]` |
 | `GET /servcad/asscli/:codcli` | código do cliente | mesma lista acima, filtrada por cliente |
 | `GET /servcad/assapp/:codapp` | código do aplicativo | mesma lista acima, filtrada por aplicativo |
-| `GET /servcad/assinvalidas/:codass` | código da assinatura | `true` / `false` — [DECISÃO] ver P-03 |
+| `GET /servcad/interno/vigencia/:codass` | código da assinatura | `{codass, fimVigencia}` — interno, usado só pelo AssinaturasValidas — [DECISÃO] ver P-03 |
 
 **Exemplo — `POST /servcad/assinaturas`**
 ```json
@@ -156,7 +156,7 @@ Painel administrativo em Next.js para o usuário único:
 |---|---|---|
 | P-01 | A spec não define **quanto** o pagamento estende, nem o que acontece com pagamento atrasado ou valor menor | Adotar RN-05 e RN-06 e **confirmar com o professor** |
 | P-02 | Campo do custo inconsistente: `custo` (GET e PATCH) × `custoMensal` (entidade e resposta do PATCH) | Seguir o texto **literalmente** em cada endpoint até o professor confirmar |
-| P-03 | O AssinaturasValidas precisa consultar o Cadastramento, mas **nenhum endpoint** foi especificado para isso | Criar `GET /servcad/assinvalidas/:codass` (interno) |
+| P-03 | O AssinaturasValidas precisa consultar o Cadastramento, mas **nenhum endpoint** foi especificado para isso | Criar `GET /servcad/interno/vigencia/:codass` (interno), que retorna `{codass, fimVigencia}`, a data e não um booleano, para o cache poder guardá-la (P-04) |
 | P-04 | **Bug de cache:** se o cache guardar `true`, a assinatura vence sem pagamento e o cache continua dizendo `true` para sempre (só pagamento limpa o cache) | O cache guarda a **`fimVigencia`**, não o booleano, e calcula a validade na hora da consulta. Mais um TTL curto como segurança |
 | P-05 | **Condição de corrida:** os dois eventos chegam juntos; o AssinaturasValidas limpa o cache, pergunta ao Cadastramento **antes** de ele atualizar a data e guarda o valor **antigo** | TTL curto no cache (ex.: 60 s) e registro do problema em ADR (consistência eventual) |
 | P-06 | **Várias instâncias** com cache em memória: cada instância tem o próprio cache, e todas precisam receber o evento de invalidação | Cache **compartilhado no Redis** (uma fila só basta) |
