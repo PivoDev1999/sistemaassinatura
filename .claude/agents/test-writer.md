@@ -2,6 +2,7 @@
 name: test-writer
 description: Escreve testes automatizados (Jest/Supertest no backend, Vitest no frontend). Use depois que uma funcionalidade for implementada.
 tools: Read, Glob, Grep, Write, Edit, Bash
+model: haiku
 color: yellow
 ---
 

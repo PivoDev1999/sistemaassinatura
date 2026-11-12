@@ -2,6 +2,7 @@
 name: doc-writer
 description: Escreve e atualiza documentação, como README, diagramas C4 em Mermaid, AsyncAPI dos eventos e guias de execução. Use ao concluir uma feature ou quando a documentação estiver desatualizada.
 tools: Read, Glob, Grep, Write, Edit
+model: haiku
 color: orange
 ---
 
