@@ -23,12 +23,12 @@ As ADRs 1 a 4 são as essenciais. Depois vêm 5 a 8. O Grupo B pode ser enxuto (
 
 | # | ADR | Resumo |
 |---|---|---|
-| 9 | Clean Architecture e regra de dependência | `domain/` sem framework; wiring só nos `*.module.ts` com tokens. Alternativas: NestJS em camadas por módulo; hexagonal livre. |
-| 10 | Monorepo pnpm e `packages/contracts` | Alternativas: repositórios separados; contratos duplicados. Consequência: acoplamento de versão dos tipos de evento (RNF-01 continua valendo, só os tipos são compartilhados). |
-| 11 | Banco por serviço (Prisma + PostgreSQL, RNF-01) e Redis para cache | Alternativa: um banco com schemas separados, que fere RNF-01. |
-| 12 | Status calculado, não armazenado (RN-02) | Alternativa: coluna `status` com job de vencimento. Relaciona-se com a ADR 2. |
-| 13 | Linguagem ubíqua em português no código | Alternativa: tudo em inglês. |
-| 14 | Seed idempotente (RNF-04) e Docker Compose (RNF-05) | Seed com `upsert` e códigos fixos; Compose com portas em 127.0.0.1, versões fixas e migrations antes do serviço. Opcional: ADR separada de estratégia de testes. |
+| 9 | ✅ escrito em [0009-clean-architecture-e-regra-de-dependencia.md](0009-clean-architecture-e-regra-de-dependencia.md). Clean Architecture e regra de dependência | `domain/` sem framework; wiring só nos `*.module.ts` com tokens. Alternativas: NestJS em camadas por módulo; hexagonal livre. |
+| 10 | ✅ escrito em [0010-monorepo-pnpm-e-packages-contracts.md](0010-monorepo-pnpm-e-packages-contracts.md). Monorepo pnpm e `packages/contracts` | Alternativas: repositórios separados; contratos duplicados. Consequência: acoplamento de versão dos tipos de evento (RNF-01 continua valendo, só os tipos são compartilhados). |
+| 11 | ✅ escrito em [0011-banco-por-servico-e-redis-para-cache.md](0011-banco-por-servico-e-redis-para-cache.md). Banco por serviço (Prisma + PostgreSQL, RNF-01) e Redis para cache | Alternativa: um banco com schemas separados, que fere RNF-01. |
+| 12 | ✅ escrito em [0012-status-calculado-nao-armazenado.md](0012-status-calculado-nao-armazenado.md). Status calculado, não armazenado (RN-02) | Alternativa: coluna `status` com job de vencimento. Relaciona-se com a ADR 2. |
+| 13 | ✅ escrito em [0013-linguagem-ubiqua-em-portugues.md](0013-linguagem-ubiqua-em-portugues.md). Linguagem ubíqua em português no código | Alternativa: tudo em inglês. |
+| 14 | ✅ escrito em [0014-seed-idempotente-e-docker-compose.md](0014-seed-idempotente-e-docker-compose.md). Seed idempotente (RNF-04) e Docker Compose (RNF-05) | Seed com `upsert` e códigos fixos; Compose com portas em 127.0.0.1, versões fixas e migrations antes do serviço. Opcional: ADR separada de estratégia de testes. |
 
 ## Riscos e decisões do tech lead
 
