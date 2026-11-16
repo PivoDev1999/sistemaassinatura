@@ -20,7 +20,7 @@ Marque `[x]` ao concluir. Use `/status` para saber onde parou e `/nova-feature <
 
 ## Fase 2 — ServicoCadastramento
 - [x] Schema Prisma + migrations + seed (10 clientes, 5 apps, 5 assinaturas, usuário)
-- [ ] `GET /servcad/clientes` e `GET /servcad/aplicativos`
+- [x] `GET /servcad/clientes` e `GET /servcad/aplicativos`
 - [ ] `PATCH /servcad/aplicativos/:idAplicativo`
 - [ ] `POST /servcad/assinaturas` (RN-01, RN-07)
 - [ ] `GET /servcad/assinaturas/:tipo`, `/asscli/:codcli`, `/assapp/:codapp` (RN-02)
