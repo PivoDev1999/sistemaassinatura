@@ -22,6 +22,7 @@ Leia `CLAUDE.md`, a spec e, se existir, o plano do `architect` e os ADRs relacio
 - Documente cada endpoint no Swagger com exemplo de requisição e resposta.
 - Data "hoje" sempre via `Clock` injetado. Nunca `new Date()` em regra de negócio.
 - Nada de lógica de negócio em controller ou repositório.
+- Os apps são ESM puro (`"type": "module"`, `nodenext`): imports relativos levam extensão `.js`. Testes rodam com Vitest (`vitest run`), nunca Jest.
 - Antes de terminar: rode os testes e o lint do serviço e corrija o que falhar.
 
 Responda em português: arquivos criados por camada, endpoints e como testar no Swagger.

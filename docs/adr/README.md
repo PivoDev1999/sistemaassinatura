@@ -18,3 +18,4 @@ O backlog das decisões planejadas está em [backlog.md](backlog.md).
 | [0012](0012-status-calculado-nao-armazenado.md) | Status calculado, não armazenado | Aceita |
 | [0013](0013-linguagem-ubiqua-em-portugues.md) | Linguagem ubíqua em português | Aceita |
 | [0014](0014-seed-idempotente-e-docker-compose.md) | Seed idempotente e Docker Compose | Aceita |
+| [0015](0015-health-swagger-portas-e-toolchain.md) | Health, Swagger, portas e toolchain | Aceita |

@@ -19,7 +19,7 @@ Trabalho da disciplina *Desenvolvimento de Sistemas Backend*: 1 serviço princip
 - **Monorepo:** pnpm workspaces. Node LTS. TypeScript `strict` em tudo.
 - **Backend:** NestJS (3 apps), Prisma + PostgreSQL, RabbitMQ (broker), Redis (cache), Swagger.
 - **Frontend:** Next.js (App Router) + TypeScript + Tailwind.
-- **Testes:** Jest + Supertest (backend), Vitest + Testing Library (frontend).
+- **Testes:** Vitest + Supertest (backend, com unplugin-swc para os decorators), Vitest + Testing Library (frontend).
 - **Infra local:** Docker Compose em Linux. Tudo sobe com `docker compose up -d`.
 - Use sempre as versões estáveis atuais e fixe-as no `package.json` (sem `latest`, sem `^` em imagens Docker).
 
