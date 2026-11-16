@@ -14,12 +14,12 @@ Marque `[x]` ao concluir. Use `/status` para saber onde parou e `/nova-feature <
 - [x] Monorepo pnpm, TypeScript strict, ESLint + Prettier na raiz
 - [ ] Regra de dependência verificada por lint (domain/application sem framework)
 - [ ] `packages/contracts` com DTOs dos endpoints e corpo dos eventos
-- [ ] `docker-compose.yml`: PostgreSQL (bancos `cadastro` e `pagamentos`), RabbitMQ, Redis, portas em 127.0.0.1
+- [ ] `docker-compose.yml`: PostgreSQL (bancos `cadastro` e `pagamentos`) feito; faltam RabbitMQ e Redis, portas em 127.0.0.1
 - [x] Os 3 apps NestJS vazios com pastas da Clean Architecture, `/health` e Swagger
 - [ ] `.env.example` e `README.md` inicial
 
 ## Fase 2 — ServicoCadastramento
-- [ ] Schema Prisma + migrations + seed (10 clientes, 5 apps, 5 assinaturas, usuário)
+- [x] Schema Prisma + migrations + seed (10 clientes, 5 apps, 5 assinaturas, usuário)
 - [ ] `GET /servcad/clientes` e `GET /servcad/aplicativos`
 - [ ] `PATCH /servcad/aplicativos/:idAplicativo`
 - [ ] `POST /servcad/assinaturas` (RN-01, RN-07)

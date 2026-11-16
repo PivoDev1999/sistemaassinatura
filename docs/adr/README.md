@@ -19,3 +19,4 @@ O backlog das decisões planejadas está em [backlog.md](backlog.md).
 | [0013](0013-linguagem-ubiqua-em-portugues.md) | Linguagem ubíqua em português | Aceita |
 | [0014](0014-seed-idempotente-e-docker-compose.md) | Seed idempotente e Docker Compose | Aceita |
 | [0015](0015-health-swagger-portas-e-toolchain.md) | Health, Swagger, portas e toolchain | Aceita |
+| [0016](0016-prisma-7-com-driver-adapter-e-bigint.md) | Prisma 7, driver adapter, BigInt e cliente gerado fora do Git | Aceita |
