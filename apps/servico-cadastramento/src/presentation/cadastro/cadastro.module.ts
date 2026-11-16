@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { AtualizarCustoAplicativoUseCase } from '../../application/atualizar-custo-aplicativo.use-case.js';
 import { ListarAplicativosUseCase } from '../../application/listar-aplicativos.use-case.js';
 import { ListarClientesUseCase } from '../../application/listar-clientes.use-case.js';
 import type { AplicativoRepository, ClienteRepository } from '../../domain/cadastro.js';
@@ -27,6 +28,11 @@ export const APLICATIVO_REPOSITORY = Symbol('APLICATIVO_REPOSITORY');
     {
       provide: ListarAplicativosUseCase,
       useFactory: (repo: AplicativoRepository) => new ListarAplicativosUseCase(repo),
+      inject: [APLICATIVO_REPOSITORY],
+    },
+    {
+      provide: AtualizarCustoAplicativoUseCase,
+      useFactory: (repo: AplicativoRepository) => new AtualizarCustoAplicativoUseCase(repo),
       inject: [APLICATIVO_REPOSITORY],
     },
   ],
