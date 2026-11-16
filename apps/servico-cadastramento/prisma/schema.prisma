@@ -1,0 +1,51 @@
+// Banco CadastroGeral. Cada servico tem o seu proprio schema (RNF-01, ADR 0011).
+// Status ATIVA/CANCELADA nao existe aqui: e calculado a partir de fimVigencia (ADR 0012).
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/infrastructure/prisma/generated"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Cliente {
+  codigo      BigInt       @id @default(autoincrement())
+  nome        String
+  email       String       @unique
+  assinaturas Assinatura[]
+
+  @@map("cliente")
+}
+
+model Aplicativo {
+  codigo      BigInt       @id @default(autoincrement())
+  nome        String       @unique
+  custoMensal Decimal      @db.Decimal(12, 2)
+  assinaturas Assinatura[]
+
+  @@map("aplicativo")
+}
+
+model Assinatura {
+  codigo         BigInt     @id @default(autoincrement())
+  codCli         BigInt
+  codApp         BigInt
+  inicioVigencia DateTime   @db.Date
+  fimVigencia    DateTime   @db.Date
+  cliente        Cliente    @relation(fields: [codCli], references: [codigo])
+  aplicativo     Aplicativo @relation(fields: [codApp], references: [codigo])
+
+  @@index([codCli])
+  @@index([codApp])
+  @@map("assinatura")
+}
+
+model Usuario {
+  usuario   String @id
+  senhaHash String
+
+  @@map("usuario")
+}
