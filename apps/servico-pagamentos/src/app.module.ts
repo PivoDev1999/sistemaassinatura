@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { configuracao, validarConfiguracao } from './infrastructure/config/configuracao';
-import { HealthModule } from './presentation/health/health.module';
+import { configuracao, validarConfiguracao } from './infrastructure/config/configuracao.js';
+import { HealthModule } from './presentation/health/health.module.js';
 
 @Module({
   imports: [
