@@ -11,11 +11,11 @@ Marque `[x]` ao concluir. Use `/status` para saber onde parou e `/nova-feature <
 - [ ] ADRs 9 a 14 (registros curtos)
 
 ## Fase 1 — Fundação
-- [ ] Monorepo pnpm, TypeScript strict, ESLint + Prettier na raiz
+- [x] Monorepo pnpm, TypeScript strict, ESLint + Prettier na raiz
 - [ ] Regra de dependência verificada por lint (domain/application sem framework)
 - [ ] `packages/contracts` com DTOs dos endpoints e corpo dos eventos
 - [ ] `docker-compose.yml`: PostgreSQL (bancos `cadastro` e `pagamentos`), RabbitMQ, Redis, portas em 127.0.0.1
-- [ ] Os 3 apps NestJS vazios com pastas da Clean Architecture, `/health` e Swagger
+- [x] Os 3 apps NestJS vazios com pastas da Clean Architecture, `/health` e Swagger
 - [ ] `.env.example` e `README.md` inicial
 
 ## Fase 2 — ServicoCadastramento
