@@ -10,3 +10,4 @@ O backlog das decisões planejadas está em [backlog.md](backlog.md).
 | [0004](0004-contrato-interno-de-vigencia-e-assinatura-inexistente.md) | Contrato interno de vigência e assinatura inexistente | Aceita |
 | [0005](0005-tempo-e-datas-clock-e-dias-de-calendario.md) | Tempo e datas: Clock e dias de calendário | Aceita |
 | [0006](0006-dinheiro-como-decimal.md) | Dinheiro como Decimal | Aceita |
+| [0007](0007-inconsistencia-custo-x-custo-mensal.md) | Inconsistência `custo` x `custoMensal` | Proposta |
