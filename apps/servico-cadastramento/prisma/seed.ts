@@ -25,21 +25,29 @@ async function main() {
   for (const a of aplicativos) {
     await prisma.aplicativo.upsert({ where: { codigo: a.codigo }, update: { nome: a.nome, custoMensal: a.custoMensal }, create: a });
   }
-  for (const s of montarAssinaturas(hoje)) {
+  const assinaturas = montarAssinaturas(hoje);
+  for (const s of assinaturas) {
     const dados = { codCli: s.codCli, codApp: s.codApp, inicioVigencia: dia(s.inicioVigencia), fimVigencia: dia(s.fimVigencia) };
-    await prisma.assinatura.upsert({ where: { codigo: s.codigo }, update: dados, create: { codigo: s.codigo, ...dados } });
+    // update vazio: o seed so cria. Nao sobrescreve vigencias renovadas por pagamento (RN-03).
+    await prisma.assinatura.upsert({ where: { codigo: s.codigo }, update: {}, create: { codigo: s.codigo, ...dados } });
   }
   const senhaHash = await bcrypt.hash(exigir('SEED_SENHA'), 12);
   const usuario = exigir('SEED_USUARIO');
   await prisma.usuario.upsert({ where: { usuario }, update: { senhaHash }, create: { usuario, senhaHash } });
 
+  // Nomes de tabela sao constantes (sem entrada externa), entao nao ha risco de injecao.
   // Codigos foram inseridos explicitamente: alinha as sequences para os proximos INSERTs nao colidirem.
   for (const tabela of ['cliente', 'aplicativo', 'assinatura']) {
     await prisma.$executeRawUnsafe(
       `SELECT setval(pg_get_serial_sequence('"${tabela}"', 'codigo'), (SELECT MAX(codigo) FROM "${tabela}"))`,
     );
   }
-  console.log(`Seed ok: ${clientes.length} clientes, ${aplicativos.length} aplicativos, ${montarAssinaturas(hoje).length} assinaturas`);
+  console.log(`Seed ok: ${clientes.length} clientes, ${aplicativos.length} aplicativos, ${assinaturas.length} assinaturas`);
 }
 
-main().finally(() => prisma.$disconnect());
+main()
+  .catch((erro: unknown) => {
+    console.error(erro);
+    process.exitCode = 1;
+  })
+  .finally(() => prisma.$disconnect());
