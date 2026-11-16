@@ -2,11 +2,12 @@
   "name": "servico-assinaturas-validas",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "nest start --watch",
     "build": "nest build",
-    "start": "node dist/main",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "start": "node dist/main.js",
+    "test": "vitest run",
     "lint": "eslint src test"
   },
   "dependencies": {
@@ -22,14 +23,13 @@
     "@nestjs/cli": "12.0.13",
     "@nestjs/schematics": "12.0.13",
     "@nestjs/testing": "12.5.1",
+    "@swc/core": "1.16.22",
     "@types/express": "5.0.6",
-    "@types/jest": "30.0.0",
     "@types/node": "24.19.2",
     "@types/supertest": "7.2.1",
-    "jest": "30.5.2",
     "supertest": "7.3.2",
-    "ts-jest": "29.4.15",
-    "ts-node": "10.9.2",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "unplugin-swc": "2.0.0",
+    "vitest": "5.1.0"
   }
 }
