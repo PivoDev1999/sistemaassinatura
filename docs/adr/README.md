@@ -11,3 +11,4 @@ O backlog das decisões planejadas está em [backlog.md](backlog.md).
 | [0005](0005-tempo-e-datas-clock-e-dias-de-calendario.md) | Tempo e datas: Clock e dias de calendário | Aceita |
 | [0006](0006-dinheiro-como-decimal.md) | Dinheiro como Decimal | Aceita |
 | [0007](0007-inconsistencia-custo-x-custo-mensal.md) | Inconsistência `custo` x `custoMensal` | Proposta |
+| [0008](0008-autenticacao-so-no-frontend.md) | Autenticação só no frontend | Aceita |
