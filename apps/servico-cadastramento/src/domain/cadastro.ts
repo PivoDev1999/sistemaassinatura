@@ -18,4 +18,12 @@ export interface ClienteRepository {
 
 export interface AplicativoRepository {
   listarTodos(): Promise<Aplicativo[]>;
+  // Devolve null quando o aplicativo nao existe.
+  atualizarCusto(codigo: number, custoMensal: string): Promise<Aplicativo | null>;
+}
+
+export class AplicativoNaoEncontradoError extends Error {
+  constructor(codigo: number) {
+    super(`Aplicativo ${codigo} nao encontrado`);
+  }
 }
