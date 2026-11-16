@@ -9,7 +9,14 @@ const aplicativos: Aplicativo[] = [{ codigo: 1, nome: 'Agenda', custoMensal: '19
 describe('casos de uso de listagem', () => {
   it.each([
     ['ListarClientes', new ListarClientesUseCase({ listarTodos: async () => clientes }), clientes],
-    ['ListarAplicativos', new ListarAplicativosUseCase({ listarTodos: async () => aplicativos }), aplicativos],
+    [
+      'ListarAplicativos',
+      new ListarAplicativosUseCase({
+        listarTodos: async () => aplicativos,
+        atualizarCusto: async () => null,
+      }),
+      aplicativos,
+    ],
     ['ListarClientes (vazio)', new ListarClientesUseCase({ listarTodos: async () => [] }), []],
   ])('%s devolve o que o repositorio tem', async (_nome, useCase, esperado) => {
     expect(await useCase.executar()).toEqual(esperado);
